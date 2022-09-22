@@ -14,7 +14,11 @@ VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
 
 Vagrant.configure("2") do |config|
     config.ssh.insert_key = false
+    if Vagrant.has_plugin?("vagrant-vbguest")
+        config.vbguest.auto_update = false
+      end
 
+      
     (1..MASTERS_NUM).each do |i|      
         config.vm.define "k8s-m-#{i}" do |master|
             master.vm.box = IMAGE_NAME
