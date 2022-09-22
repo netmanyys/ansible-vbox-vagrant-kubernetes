@@ -74,12 +74,15 @@
   apt:
     name: kubelet=1.21.10-00
     state: present
+    dpkg_options: force-downgrade
+    force: yes
   
 - name: install kubectl
   apt:
     name: kubectl=1.21.10-00
     state: present
     force: yes
+    dpkg_options: force-downgrade
 
 - name: hold the software at the recent but stable version 
   shell: apt-mark hold kubectl
