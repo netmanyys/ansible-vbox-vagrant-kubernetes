@@ -10,9 +10,9 @@ k8s_common_add_packages_names:
 - name: apt-transport-https
 - name: curl
 - name: containerd.io
-- name: kubeadm=1.21.10
-- name: kubelet=1.21.10
-- name: kubectl=1.21.10
+- name: kubeadm=1.21.3
+- name: kubelet=1.21.3
+- name: kubectl=1.21.3
 
 k8s_common_remove_packages_names:
 - name: 
