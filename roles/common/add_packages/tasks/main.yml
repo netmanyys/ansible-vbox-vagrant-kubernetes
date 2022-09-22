@@ -51,3 +51,21 @@
     cache_valid_time={{linux_add_packages_cache_valid_time}}
   with_items: "{{ linux_add_packages_names | default([])}}"
   when: linux_add_packages_names is defined and not (linux_add_packages_names is none or linux_add_packages_names | trim == '')
+
+- name: Add Google official GPG key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+- name: Add Kubernetes Repository
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main 
+    state: present
+    filename: kubernetes
+    mode: 0600
+- name: Installing Kubernetes Cluster Packages.
+  apt: 
+    name:
+      - kubeadm=1.21.10
+      - kubectl=1.21.10
+      - kubelet=1.21.10
+    state: present
