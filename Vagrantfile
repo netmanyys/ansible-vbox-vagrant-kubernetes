@@ -1,4 +1,4 @@
-IMAGE_NAME = "bento/ubuntu-20.04"
+IMAGE_NAME = "ubuntu/focal64"
 K8S_NAME = "ditwl-k8s-01"
 MASTERS_NUM = 1
 MASTERS_CPU = 2 
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
         config.vbguest.auto_update = false
       end
 
-      
+
     (1..MASTERS_NUM).each do |i|      
         config.vm.define "k8s-m-#{i}" do |master|
             master.vm.box = IMAGE_NAME
