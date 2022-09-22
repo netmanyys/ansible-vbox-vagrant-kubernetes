@@ -65,21 +65,21 @@
 
 - name: install kubeadm
   apt:
-    name: kubeadm=1.21.10-00
+    name: kubeadm=1.22.10-00
     state: present
     update_cache: true
 
 
 - name: install kubelet
   apt:
-    name: kubelet=1.21.10-00
+    name: kubelet=1.22.10-00
     state: present
     dpkg_options: force-downgrade
     force: yes
   
 - name: install kubectl
   apt:
-    name: kubectl=1.21.10-00
+    name: kubectl=1.22.10-00
     state: present
     force: yes
     dpkg_options: force-downgrade
